@@ -1,0 +1,33 @@
+name: Build 👑مترجم اسطوري اصدار 380👑
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install
+        run: npm install
+
+      - name: Build EXE
+        run: npx electron-builder --win --publish never
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: 👑مترجم-اسطوري-اصدار-380👑
+          path: dist/
