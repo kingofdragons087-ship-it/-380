@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐉 المترجم الأسطوري | King of Dragons | TGB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gamer-bg"></div>
+    <div class="scan-lines"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="app">
+        <h1>⚔️ المترجم الأسطوري ⚔️</h1>
+        <p class="subtitle">🇬🇧 English → 🇸🇦 العربية | 5000+ كلمة</p>
+        <p class="credit">🐉 تم تطوير هذا التطبيق من طرف <b>King of Dragons</b> 👑 و <b>العيال TGB</b> 🎮</p>
+
+        <div class="box">
+            <h3>📥 English</h3>
+            <textarea id="sourceText" placeholder="Enter English text...&#10;او ارفع ملف للترجمة"></textarea>
+            <div class="upload-zone" id="uploadZone">
+                📁 اضغط أو اسحب ملف هنا (max 500MB)
+                <input type="file" id="fileInput" hidden accept=".txt,.json,.xml,.csv,.srt,.po,.ini,.cfg,.lang">
+            </div>
+            <div class="progress"><div id="progressBar"></div></div>
+            <small id="fileStatus"></small>
+        </div>
+
+        <div class="btns">
+            <button onclick="translateDict()" class="btn-dict">📚 قاموس</button>
+            <button onclick="translateGoogle()" class="btn-google">🌐 Google</button>
+            <button onclick="translateHybrid()" class="btn-hybrid">⚡ هجين</button>
+            <button onclick="copyText()" class="btn-copy">📋 نسخ</button>
+            <button onclick="downloadText()" class="btn-download">💾 تحميل</button>
+            <button onclick="clearAll()" class="btn-clear">🗑️ مسح</button>
+        </div>
+
+        <div class="box">
+            <h3>📤 العربية</h3>
+            <textarea id="translatedText" placeholder="الترجمة ستظهر هنا..." readonly></textarea>
+            <div class="btns" style="margin-top:10px">
+                <button onclick="reverseText()" class="btn-reverse">🔄 عكس الحروف (تدوين)</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>🔧 تصحيح خطأ في القاموس</h3>
+            <div class="fix-row">
+                <input type="text" id="fixEnglish" placeholder="الكلمة الإنجليزية">
+                <input type="text" id="fixArabic" placeholder="الترجمة الصحيحة">
+                <button onclick="fixWord()" class="btn-fix">⚡ صحح</button>
+            </div>
+            <div class="fix-status" id="fixStatus"></div>
+        </div>
+
+        <div class="box">
+            <h3>🌐 تصحيح خطأ إملائي من Google</h3>
+            <div class="fix-row">
+                <input type="text" id="fixGoogleWrong" placeholder="الخطأ من Google (مثال: مرحبا)">
+                <input type="text" id="fixGoogleCorrect" placeholder="التصحيح الصحيح (مثال: مرحباً)">
+                <button onclick="fixGoogleError()" class="btn-googlefix">🌐 صحح Google</button>
+            </div>
+            <div class="fix-status" id="fixGoogleStatus"></div>
+        </div>
+
+        <div class="box">
+            <h3>📝 إضافة جمل متعددة (دفعة واحدة)</h3>
+            <p class="hint">ضع كل جملة في سطر - استخدم <b>=</b> للفصل</p>
+            <textarea id="batchInput" placeholder="continue = متابعة&#10;quit = خروج&#10;fire sword = سيف النار&#10;dragon shield = درع التنين" style="min-height:100px"></textarea>
+            <button onclick="addBatch()" class="btn-addbatch">✅ أضف الكل للقاموس</button>
+            <div class="fix-status" id="batchStatus"></div>
+        </div>
+
+        <div class="links">
+            <a href="https://www.paypal.com/paypalme/SalimSadooni?locale.x=ar_EG&country.x=OM" target="_blank" class="link-paypal">💰 ادعمنا عبر PayPal</a>
+            <a href="https://www.youtube.com/@TGB2022" target="_blank" class="link-youtube">▶️ اشترك في قناة TGB2022</a>
+        </div>
+
+        <div class="thanks">
+            <h3>🏅 شكر خاص للمعربين الأسطوريين</h3>
+            <p>✨ كل الشكر والتقدير لجميع المعربين الذين ساهموا في تعريب الألعاب وجعلها في متناول المجتمع العربي ✨</p>
+            <p>🎮 بفضلكم استمتع الملايين بألعابهم المفضلة بلغتهم الأم 🎮</p>
+            <p>💪 أنتم الأبطال الحقيقيون خلف الكواليس 💪</p>
+            <p class="highlight">🌟 من King of Dragons وفريق TGB - تحية إجلال وتقدير 🌟</p>
+        </div>
+    </div>
+
+    <div id="notifications"></div>
+    <script src="script.js"></script>
+</body>
+</html>
